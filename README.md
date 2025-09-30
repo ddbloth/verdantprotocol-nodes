@@ -1,61 +1,35 @@
-# 🌿 VerdantProtocol
+# 🌿 VerdantProtocol Nodes
 
-**VerdantProtocol** is a modular, scalable, and intelligent environmental monitoring and automation framework designed for grow tents, greenhouses, and beyond. It leverages a swarm of Wi-Fi-enabled sensor nodes to feed real-time data to a central master controller, which orchestrates actuator responses to optimize plant health and resource efficiency.
-
----
-
-## 🧠 Project Overview
-
-VerdantProtocol is built around the concept of distributed intelligence:
-
-- **Sensor Nodes**: Autonomous Raspberry Pi Pico W modules measuring soil moisture, temperature, humidity, barometric pressure, light, and more.
-- **Master Controller**: A Raspberry Pi 5 running an MQTT broker, automation logic, and optional dashboard.
-- **Actuator Nodes**: Devices like sprinklers, fans, heaters, and humidifiers that respond to commands from the master controller.
+This repository is part of the broader [VerdantProtocol](https://github.com/ddbloth/verdantprotocol-core, and intelligent environmental monitoring and automation framework for grow tents, greenhouses, and beyond.
 
 ---
 
-## 🧬 Architecture
-Sensor Nodes (Pico W) --> MQTT --> Raspberry Pi 5 (Master Controller) --> Actuators
+## 📦 Purpose of This Repository
 
-Each node publishes data to MQTT topics. The master controller subscribes to these topics, logs the data, and triggers automation rules based on thresholds or conditions.
+**`verdantprotocol-nodes`** contains the firmware and configuration logic for the distributed sensor nodes in the VerdantProtocol network. These nodes are built using Raspberry Pi Pico W microcontrollers and are responsible for collecting environmental data and publishing it to the master controller via MQTT.
 
----
+Each node is modular and may include one or more sensors such as:
 
-## 🎯 Goals
-
-- 🌱 Optimize plant health through real-time environmental monitoring
-- 🔧 Enable modular, battery-powered sensor nodes
-- 📡 Use Wi-Fi and MQTT for lightweight communication
-- 🧩 Support scalable deployments from tents to farms
-- 📊 Provide optional dashboards and data logging
+- 🌱 Soil moisture
+- 🌡️ Temperature and humidity
+- 🌬️ Barometric pressure
+- 💡 Ambient light
+- 🧪 pH and EC sensors
+- 🌫️ CO₂ and air quality
 
 ---
 
-## 📁 Repositories
+## 🧱 Folder Structure
 
-| Repo | Description |
-|------|-------------|
-| `verdantprotocol-core` | Master controller logic, MQTT broker setup, automation scripts |
-| `verdantprotocol-nodes` | Firmware for Pico W sensor modules |
-| `verdantprotocol-actuators` | Scripts and logic for actuator control |
 
----
-
-## 🚀 Getting Started
-
-1. Flash sensor node firmware to your Pico W devices
-2. Set up the Raspberry Pi 5 with MQTT broker and automation logic
-3. Connect actuators and define rules
-4. Monitor and expand your network as needed
-
----
-
-## 📜 License
-
-MIT License — open source and ready to grow.
-
----
-
-## 🤖 Join the Swarm
-
-VerdantProtocol is designed to evolve. Add new sensors, expand your zones, and automate smarter. This is just the beginning.
+verdantprotocol-nodes/
+├── boot.py                  # MicroPython boot logic
+├── main.py                  # Main loop for sensor reading and MQTT publishing
+├── config.py                # Node-specific configuration (Wi-Fi, MQTT, zone ID)
+├── lib/
+│   ├── wifi.py              # Wi-Fi connection logic
+│   ├── mqtt_client.py       # MQTT setup and publishing
+│   ├── moisture_sensor.py   # Soil moisture sensor logic
+│   ├── display.py           # OLED display output (optional)
+├── assets/                  # Wiring diagrams, images, etc.
+└── README.md                # This file
