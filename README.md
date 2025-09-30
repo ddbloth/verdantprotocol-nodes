@@ -21,15 +21,4 @@ Each node is modular and may include one or more sensors such as:
 
 ## 🧱 Folder Structure
 
-
-verdantprotocol-nodes/
-├── boot.py                  # MicroPython boot logic
-├── main.py                  # Main loop for sensor reading and MQTT publishing
-├── config.py                # Node-specific configuration (Wi-Fi, MQTT, zone ID)
-├── lib/
-│   ├── wifi.py              # Wi-Fi connection logic
-│   ├── mqtt_client.py       # MQTT setup and publishing
-│   ├── moisture_sensor.py   # Soil moisture sensor logic
-│   ├── display.py           # OLED display output (optional)
-├── assets/                  # Wiring diagrams, images, etc.
-└── README.md                # This file
+![alt text](image.png)
